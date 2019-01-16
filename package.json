@@ -12,6 +12,9 @@
     "svg": "svgo assets/icons --disable removeViewBox"
   },
   "dependencies": {
+    "appcenter": "1.11.0",
+    "appcenter-analytics": "1.11.0",
+    "appcenter-crashes": "1.11.0",
     "axios": "^0.16.2",
     "babel-preset-react-native": "^4.0.0",
     "intl": "^1.2.5",
