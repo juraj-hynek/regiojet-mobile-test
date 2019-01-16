@@ -1,0 +1,6 @@
+//
+//  Config.xcconfig
+//  RegioJet
+//
+
+FABRIC_API_KEY = xxxx

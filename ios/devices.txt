@@ -1,0 +1,14 @@
+Device ID	Device Name
+74ecb7c3d3f0c001abebcf0fdcddd7478332320a	ppohl - iPhone
+89878e487a339780375f8281d1ddee3462f8de16	Suicide bomber
+ef13e9a2d9f3a6788262eaf5d3296c451d68d212	trepka.tommy@gmail.com
+ed32154e53950b1c079f57ed48fe95f58c005dfc	oliver.ustinovich@actum.cz
+edc25a893794bd4b94ba572ee8c764dfcb9a2450	Vojtěch Bulant
+20e43538ecac66fd3505eb82661e8f7135f15ef9	Lenka Chroncová
+cbb5528d03f47b96163f2295b64d3fd1f67dd376	Actum QA iPhone
+84b44839a0ba4e174d53c6bcbd699bd74b28817f	iPhone 5
+d6b3ab514a8d0fab6413cc07cb42146437aa822b	iPhone
+51f25098b9b743dc991414162e02e397155740f2	lenka.chroncova@studentagency.cz
+7aaf1852836968d53941136a5ba74b59ff32e69d	Actum QA iPhone 6S
+fd7328baf921b973e8f9c1ff12f1f8be3765c859	Lenka Chroncová
+aecea950f8100dff01f7914e72ce0c03ec4328dc	Lenka Chroncova – iPhone 8

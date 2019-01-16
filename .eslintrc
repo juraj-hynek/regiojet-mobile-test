@@ -1,0 +1,48 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["flowtype", "prettier", "react-native"],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "env": {
+    "jest": true,
+    "mocha": true
+  },
+  "rules": {
+    // it doesn't go well with prettier
+    "arrow-parens": 0,
+    "indent": 0,
+    "react/jsx-indent": 0,
+    // this rule doesn't exist anymore and throws errors
+    "jsx-a11y/href-no-hash": 0,
+    // we keep JSX in .js files
+    "react/jsx-filename-extension": 0,
+    // actions can have just one action
+    "import/prefer-default-export": 0,
+    // shadowing is a nice language feature, naming is hard
+    "no-shadow": 0,
+    // we want to define styles at the bottom of component
+    "no-use-before-define": 0,
+    // it doesn't go well with prettier
+    "no-confusing-arrow": 0,
+    // stop making random default props
+    "react/require-default-props": 0,
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
+    "react/forbid-prop-types": 0,
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
+        ],
+        "allowSamePrecedence": true
+      }
+    ],
+    // prettier
+    "prettier/prettier": "error"
+  }
+}

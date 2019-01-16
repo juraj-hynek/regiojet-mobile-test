@@ -1,0 +1,10 @@
+git_url("https://github.com/actum/certificates")
+
+type("adhoc") # The default type, can be: appstore, adhoc, enterprise or development
+
+app_identifier("com.regiojet.shop")
+username(ENV["APPLE_ID"]) # Your Apple Developer Portal username
+team_name(ENV["TEAM_NAME"])
+
+# For all available options run `fastlane match --help`
+# Remove the # in the beginning of the line to enable the other options

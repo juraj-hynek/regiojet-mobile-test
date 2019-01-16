@@ -1,0 +1,88 @@
+{
+  "name": "RegioJet",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "eslint": "eslint ./src",
+    "prettier": "prettier --write src/**/*.js",
+    "flow": "flow",
+    "flow-typed": "rimraf flow-typed && flow-typed install",
+    "svg": "svgo assets/icons --disable removeViewBox"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-preset-react-native": "^4.0.0",
+    "intl": "^1.2.5",
+    "jssha": "^2.3.1",
+    "lodash": "^4.17.4",
+    "md5": "^2.2.1",
+    "moment": "^2.19.1",
+    "native-base": "^2.4.5",
+    "qs": "^6.5.1",
+    "react": "16.4.0",
+    "react-intl": "^2.4.0",
+    "react-native": "0.55.4",
+    "react-native-calendars": "^1.19.3",
+    "react-native-communications": "^2.2.1",
+    "react-native-dash": "^0.0.8",
+    "react-native-device-info": "^0.21.5",
+    "react-native-google-analytics-bridge": "^5.8.0",
+    "react-native-maps": "^0.21.0",
+    "react-native-maps-directions": "^1.6.0",
+    "react-native-modal-selector": "^0.0.27",
+    "react-native-render-html": "^3.10.0",
+    "react-native-scalable-image": "^0.4.0",
+    "react-native-side-menu": "^1.1.3",
+    "react-native-slider": "^0.11.0",
+    "react-native-splash-screen": "3.0.9",
+    "react-native-svg": "6.0.0",
+    "react-native-svg-uri": "^1.2.3",
+    "react-navigation": "^2.5.3",
+    "react-navigation-redux-helpers": "^2.0.2",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-persist": "^5.5.0",
+    "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.8",
+    "url": "^0.11.0",
+    "validator": "^9.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-dotenv-import": "^1.3.1",
+    "babel-plugin-inline-import": "^2.0.6",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-flowtype": "^2.40.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react-native": "^3.0.1",
+    "flow-bin": "^0.67.0",
+    "flow-typed": "^2.2.3",
+    "jest": "^21.2.1",
+    "prettier": "^1.5.3",
+    "react-devtools": "^2.5.0",
+    "react-native-scripts": "1.1.0",
+    "react-test-renderer": "^16.0.0",
+    "reactotron-react-native": "^1.14.0",
+    "rimraf": "^2.6.2",
+    "svgo": "^1.0.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!native-base)/"
+    ]
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  }
+}

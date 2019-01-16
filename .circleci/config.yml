@@ -1,0 +1,106 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:8.7.0
+    environment:
+      NODE_ENV: test
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: yarn eslint
+      - run: yarn test
+      - run: yarn flow
+  ios:
+    macos:
+      xcode: "9.2.0"
+    working_directory: ~/project
+    environment:
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: beta
+      CONFIG_FILE: Config.xcconfig
+    shell: /bin/bash --login -o pipefail
+    steps:
+      # TODO try to reuse duplicate steps from test job (checkout, yarn)
+      - checkout
+      - run: yarn install
+      - run:
+          name: Set Ruby Version
+          command:  echo "ruby-2.4" > ~/.ruby-version
+      - restore_cache:
+          key: 1-gems-{{ checksum "ios/Gemfile.lock" }}
+      - run:
+          working_directory: ./ios
+          command: bundle check || bundle install --path vendor/bundle
+      - save_cache:
+          key: 1-gems-{{ checksum "ios/Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          working_directory: ./ios
+          command: if [ ! -f $CONFIG_FILE ]; then echo "FABRIC_API_KEY=$FABRIC_API_KEY" > $CONFIG_FILE; fi
+      - run:
+          working_directory: ./ios
+          name: fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
+
+  # TODO reuse setup from previous jobs
+  android:
+    docker:
+      - image: circleci/android:api-27-node8-alpha
+    working_directory: ~/project
+    environment:
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: beta
+    steps:
+      # TODO try to reuse duplicate steps from test job (checkout, yarn)
+      - checkout
+      - run: yarn install
+      # TODO try to reuse duplicate steps from ios job (ruby, gems)
+      - run:
+          name: Set Ruby Version
+          command:  echo "ruby-2.4" > ~/.ruby-version
+      - restore_cache:
+          key: 1-gems-{{ checksum "android/Gemfile.lock" }}
+      - run:
+          working_directory: ./android
+          command: bundle check || bundle install --path vendor/bundle
+      - save_cache:
+          key: 1-gems-{{ checksum "android/Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          working_directory: ./android
+          name: fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test
+      - android:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
+      - ios:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test

@@ -1,0 +1,19 @@
+{
+  "presets": ["react-native"],
+  "plugins": [
+    [
+      // load raw SVG files directly like this:
+      // import Bus from './Bus.svg'
+      "babel-plugin-inline-import",
+      {
+        "extensions": [".svg"]
+      }
+    ],
+    [
+      "dotenv-import",
+      {
+        "allowUndefined": true
+      }
+    ]
+  ]
+}

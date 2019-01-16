@@ -1,0 +1,6 @@
+framework module Pods_RegioJet {
+  umbrella header "Pods-RegioJet-umbrella.h"
+
+  export *
+  module * { export * }
+}
